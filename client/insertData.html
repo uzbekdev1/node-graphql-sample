@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Skyflow Demo</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <script src="index.js"></script>
+  </head>
+
+  <body>
+    <div class="main">
+      <div>
+        <div class="title">
+          IDENTITY FORM
+        </div>
+        <form id="identity-form">
+          <section>
+            <h2>PERSONAL INFORMATION</h2>
+            <fieldset>
+              <label>
+                <span>Identity Id</span>
+                <input
+                  id="identity_id"
+                  type="number"
+                  class="field"
+                  placeholder="Enter your id"
+                />
+              </label>
+              <div style="display: flex; justify-content: space-between;">
+                <label>
+                  <span>First Name</span>
+                  <input
+                    id="first_name"
+                    type="text"
+                    class="field"
+                    placeholder="Enter your first name"
+                  />
+                </label>
+                <label>
+                  <span>Middle Name</span>
+                  <input
+                    id="middle_name"
+                    type="text"
+                    class="field"
+                    placeholder="Enter your middle name"
+                  />
+                </label>
+              </div>
+              <label>
+                <span>Last Name</span>
+                <input
+                  id="last_name"
+                  type="text"
+                  class="field"
+                  placeholder="Enter your last name"
+                />
+              </label>
+
+              <div style="display: flex; justify-content: space-between;">
+                <label>
+                  <span>SSN</span>
+                  <input
+                    id="ssn"
+                    type="number"
+                    class="field"
+                    placeholder="Enter your SSN here"
+                  />
+                </label>
+                <label>
+                  <span>Ethnicity</span>
+
+                  <select id="ethnicity">
+                    <option value="">--Select--</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                  </select>
+                </label>
+              </div>
+
+              <div style="display: flex; justify-content: space-between;">
+                <label>
+                  <span>Gender</span>
+
+                  <select id="gender">
+                    <option value="">--Select--</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+
+                <label>
+                  <span>DOB</span>
+                  <input
+                    id="birth_date"
+                    type="date"
+                    class="field"
+                    placeholder="94107"
+                  />
+                </label>
+              </div>
+            </fieldset>
+          </section>
+          <section>
+            <h2>CONTACT INFORMATION</h2>
+            <fieldset>
+              <div style="display: flex; justify-content: space-between;">
+                <label class="mobile">
+                  <span>Mobile Number</span>
+                  <input
+                    type="number"
+                    id="mobile_phone_number"
+                    class="field"
+                    placeholder="Mobile number"
+                  />
+                </label>
+                <label class="home">
+                  <span>Home Phone Number</span>
+                  <input
+                    type="number"
+                    id="home_phone_number"
+                    class="field"
+                    placeholder="Home phone number"
+                  />
+                </label>
+              </div>
+              <label>
+                <span>Address Line1</span>
+                <input
+                  type="text"
+                  id="primary_address_line1"
+                  class="field"
+                  placeholder="Eg: 185 Berry Street Suite 550"
+                />
+              </label>
+              <label>
+                <span>Address Line2</span>
+                <input
+                  type="text"
+                  id="primary_address_line2"
+                  class="field"
+                  placeholder="Eg: 185 Berry Street Suite 550"
+                />
+              </label>
+              <label class="city">
+                <span>City</span>
+                <input
+                  type="text"
+                  id="primary_address_city"
+                  class="field"
+                  placeholder="Eg: San Francisco"
+                />
+              </label>
+              <div style="display: flex; justify-content: space-between;">
+                <label class="state">
+                  <span>State</span>
+                  <input
+                    id="primary_address_state"
+                    class="field"
+                    placeholder="Eg: CA"
+                  />
+                </label>
+                <label class="zip">
+                  <span>ZIP</span>
+                  <input
+                    type="number"
+                    id="primary_address_zipcode"
+                    class="field"
+                    placeholder="Eg: 94107"
+                  />
+                </label>
+              </div>
+              <label class="zip">
+                <span>Notes</span>
+                <input
+                  type="text"
+                  id="notes"
+                  class="field"
+                  placeholder="Notes..."
+                />
+              </label>
+            </fieldset>
+          </section>
+          <button type="submit" onclick="insertRow(event)">Submit</button>
+
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <div id="loader">
+                <div style="display: flex; justify-content: center;">
+                  <div class="loader"></div>
+                </div>
+                <div style="text-align: center;">Submitting your data..</div>
+              </div>
+              <div id="content">
+                <div style="padding: 5px;">
+                  Your data has been submitted successfully!!
+                </div>
+                <div style="padding: 10px;">
+                  <div>Your Identity token is : <span id="ref_id"></span></div>
+                </div>
+
+                <button class="button" onclick="close(event)">
+                  Okay
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
