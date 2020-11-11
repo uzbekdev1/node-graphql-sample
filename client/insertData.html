@@ -11,27 +11,16 @@
   <body>
     <div class="main">
       <div>
-        <div class="title">
-          IDENTITY FORM
-        </div>
+        <div class="title">IDENTITY FORM</div>
         <form id="identity-form">
           <section>
             <h2>PERSONAL INFORMATION</h2>
             <fieldset>
-              <label>
-                <span>Identity Id</span>
-                <input
-                  id="identity_id"
-                  type="number"
-                  class="field"
-                  placeholder="Enter your id"
-                />
-              </label>
-              <div style="display: flex; justify-content: space-between;">
+              <div style="display: flex; justify-content: space-between">
                 <label>
                   <span>First Name</span>
                   <input
-                    id="first_name"
+                    name="first_name"
                     type="text"
                     class="field"
                     placeholder="Enter your first name"
@@ -40,88 +29,155 @@
                 <label>
                   <span>Middle Name</span>
                   <input
-                    id="middle_name"
+                    name="middle_name"
                     type="text"
                     class="field"
                     placeholder="Enter your middle name"
                   />
                 </label>
               </div>
-              <label>
-                <span>Last Name</span>
-                <input
-                  id="last_name"
-                  type="text"
-                  class="field"
-                  placeholder="Enter your last name"
-                />
-              </label>
-
-              <div style="display: flex; justify-content: space-between;">
+              <div style="display: flex; justify-content: space-between">
                 <label>
-                  <span>SSN</span>
+                  <span>Last Name</span>
                   <input
-                    id="ssn"
-                    type="number"
+                    name="last_name"
+                    type="text"
                     class="field"
-                    placeholder="Enter your SSN here"
+                    placeholder="Enter your last name"
+                  />
+                </label>
+                <label>
+                  <span>Use</span>
+                  <input
+                    name="name_use"
+                    type="text"
+                    class="field"
+                    placeholder="Use"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Prefix</span>
+                  <input
+                    name="prefix"
+                    type="text"
+                    class="field"
+                    placeholder="Prefix"
+                  />
+                </label>
+                <label>
+                  <span>Suffix</span>
+                  <input
+                    name="suffix"
+                    type="text"
+                    class="field"
+                    placeholder="Suffix"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Preferred Language</span>
+                  <input
+                    name="preferred_language"
+                    type="text"
+                    class="field"
+                    placeholder="Preferred Language"
                   />
                 </label>
                 <label>
                   <span>Ethnicity</span>
+                  <input
+                    name="ethnicity"
+                    type="text"
+                    class="field"
+                    placeholder="Ethnicity"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Race</span>
+                  <input
+                    id="race"
+                    name="race"
+                    type="text"
+                    class="field"
+                    placeholder="Race"
+                  />
+                </label>
+                <label>
+                  <span>Religion</span>
 
-                  <select id="ethnicity">
-                    <option value="">--Select--</option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                  </select>
+                  <input
+                    name="religion"
+                    type="text"
+                    class="field"
+                    placeholder="Religion"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Nationality</span>
+                  <input
+                    name="nationality"
+                    type="text"
+                    class="field"
+                    placeholder="Nationality"
+                  />
+                </label>
+                <label>
+                  <span>Marital Status</span>
+
+                  <input
+                    name="marital_status"
+                    type="text"
+                    class="field"
+                    placeholder="Marital Status"
+                  />
                 </label>
               </div>
 
-              <div style="display: flex; justify-content: space-between;">
+              <div style="display: flex; justify-content: space-between">
                 <label>
                   <span>Gender</span>
-
-                  <select id="gender">
-                    <option value="">--Select--</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                  </select>
+                  <input
+                    name="gender"
+                    type="text"
+                    class="field"
+                    placeholder="Gender"
+                  />
                 </label>
 
                 <label>
                   <span>DOB</span>
                   <input
-                    id="birth_date"
+                    name="birth_date"
                     type="date"
                     class="field"
-                    placeholder="94107"
+                    placeholder="Date Of Birth"
                   />
                 </label>
               </div>
-            </fieldset>
-          </section>
-          <section>
-            <h2>CONTACT INFORMATION</h2>
-            <fieldset>
-              <div style="display: flex; justify-content: space-between;">
+              <div style="display: flex; justify-content: space-between">
                 <label class="mobile">
                   <span>Mobile Number</span>
                   <input
-                    type="number"
-                    id="mobile_phone_number"
+                    type="text"
+                    name="person_mobile_value"
                     class="field"
                     placeholder="Mobile number"
                   />
                 </label>
                 <label class="home">
-                  <span>Home Phone Number</span>
+                  <span>Mobile Number Type</span>
                   <input
-                    type="number"
-                    id="home_phone_number"
+                    type="text"
+                    name="person_mobile_type"
                     class="field"
-                    placeholder="Home phone number"
+                    placeholder="Mobile Number Type"
                   />
                 </label>
               </div>
@@ -129,7 +185,7 @@
                 <span>Address Line1</span>
                 <input
                   type="text"
-                  id="primary_address_line1"
+                  name="persons_address_line1"
                   class="field"
                   placeholder="Eg: 185 Berry Street Suite 550"
                 />
@@ -138,46 +194,587 @@
                 <span>Address Line2</span>
                 <input
                   type="text"
-                  id="primary_address_line2"
+                  name="persons_address_line2"
                   class="field"
                   placeholder="Eg: 185 Berry Street Suite 550"
                 />
               </label>
-              <label class="city">
-                <span>City</span>
-                <input
-                  type="text"
-                  id="primary_address_city"
-                  class="field"
-                  placeholder="Eg: San Francisco"
-                />
-              </label>
-              <div style="display: flex; justify-content: space-between;">
-                <label class="state">
-                  <span>State</span>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>City</span>
                   <input
-                    id="primary_address_state"
+                    name="city"
+                    type="text"
                     class="field"
-                    placeholder="Eg: CA"
+                    placeholder="City"
                   />
                 </label>
-                <label class="zip">
-                  <span>ZIP</span>
+                <label>
+                  <span>District</span>
+
                   <input
-                    type="number"
-                    id="primary_address_zipcode"
+                    name="district"
+                    type="text"
                     class="field"
-                    placeholder="Eg: 94107"
+                    placeholder="District"
                   />
                 </label>
               </div>
-              <label class="zip">
-                <span>Notes</span>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Full Name</span>
+                  <input
+                    name="addr_full_name"
+                    type="text"
+                    class="field"
+                    placeholder="Full Name"
+                  />
+                </label>
+                <label>
+                  <span>Use</span>
+
+                  <input
+                    name="addr_use"
+                    type="text"
+                    class="field"
+                    placeholder="Use"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Country</span>
+                  <input
+                    name="country"
+                    type="text"
+                    class="field"
+                    placeholder="Country"
+                  />
+                </label>
+                <label>
+                  <span>Zipcode</span>
+
+                  <input
+                    name="zipcode"
+                    type="text"
+                    class="field"
+                    placeholder="Zip code"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Email Value</span>
+                  <input
+                    name="email_value"
+                    type="email"
+                    class="field"
+                    placeholder="Email"
+                  />
+                </label>
+                <label>
+                  <span>Email type</span>
+
+                  <input
+                    name="email_type"
+                    type="text"
+                    class="field"
+                    placeholder="Email type"
+                  />
+                </label>
+              </div>
+              <label>
+                <span>Address Type</span>
+                <input
+                  name="addr_type"
+                  type="text"
+                  class="field"
+                  placeholder="Address Type"
+                />
+              </label>
+            </fieldset>
+          </section>
+          <section>
+            <h2>CONTACT INFORMATION</h2>
+            <fieldset>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>First Name</span>
+                  <input
+                    name="contact_first_name"
+                    type="text"
+                    class="field"
+                    placeholder="Enter your first name"
+                  />
+                </label>
+                <label>
+                  <span>Middle Name</span>
+                  <input
+                    name="contact_middle_name"
+                    type="text"
+                    class="field"
+                    placeholder="Enter your middle name"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Last Name</span>
+                  <input
+                    name="contact_last_name"
+                    type="text"
+                    class="field"
+                    placeholder="Enter your last name"
+                  />
+                </label>
+                <label>
+                  <span>Use</span>
+                  <input
+                    name="contact_name_use"
+                    type="text"
+                    class="field"
+                    placeholder="Use"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Prefix</span>
+                  <input
+                    name="contact_prefix"
+                    type="text"
+                    class="field"
+                    placeholder="Prefix"
+                  />
+                </label>
+                <label>
+                  <span>Suffix</span>
+                  <input
+                    name="contact_suffix"
+                    type="text"
+                    class="field"
+                    placeholder="Suffix"
+                  />
+                </label>
+              </div>
+              <label class="mobile">
+                <span>Website</span>
                 <input
                   type="text"
-                  id="notes"
+                  name="website"
                   class="field"
-                  placeholder="Notes..."
+                  placeholder="Website"
+                />
+              </label>
+              <div style="display: flex; justify-content: space-between">
+                <label class="mobile">
+                  <span>Gender</span>
+                  <input
+                    type="text"
+                    name="contact_gender"
+                    class="field"
+                    placeholder="Gender"
+                  />
+                </label>
+                <label class="home">
+                  <span>Relationship</span>
+                  <input
+                    type="text"
+                    name="relationship"
+                    class="field"
+                    placeholder="Relationhship"
+                  />
+                </label>
+              </div>
+              <label class="home">
+                <span>Is Emergency Contact?</span>
+                <input
+                  type="text"
+                  name="isEmergency"
+                  class="field"
+                  placeholder="Emergency Contact"
+                />
+              </label>
+
+              <div style="display: flex; justify-content: space-between">
+                <label class="mobile">
+                  <span>Mobile Number</span>
+                  <input
+                    type="text"
+                    name="mobile_value"
+                    class="field"
+                    placeholder="Mobile number"
+                  />
+                </label>
+                <label class="home">
+                  <span>Mobile Number Type</span>
+                  <input
+                    type="text"
+                    name="mobile_type"
+                    class="field"
+                    placeholder="Mobile Number Type"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label class="mobile">
+                  <span>Social Media Handle</span>
+                  <input
+                    type="text"
+                    name="social_handle"
+                    class="field"
+                    placeholder="Social Media Handle"
+                  />
+                </label>
+                <label class="home">
+                  <span>Social Media Handle Type</span>
+                  <input
+                    type="text"
+                    name="social_type"
+                    class="field"
+                    placeholder="Social Media Handle Type"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label class="mobile">
+                  <span>Start Date</span>
+                  <input
+                    type="date"
+                    name="start_date"
+                    class="field"
+                    placeholder="Start date"
+                  />
+                </label>
+                <label class="home">
+                  <span>End Date</span>
+                  <input
+                    type="date"
+                    name="end_date"
+                    class="field"
+                    placeholder="End Date"
+                  />
+                </label>
+              </div>
+              <label>
+                <span>Address Line1</span>
+                <input
+                  type="text"
+                  name="contact_address_line1"
+                  class="field"
+                  placeholder="Eg: 185 Berry Street Suite 550"
+                />
+              </label>
+              <label>
+                <span>Address Line2</span>
+                <input
+                  type="text"
+                  name="contact_address_line2"
+                  class="field"
+                  placeholder="Eg: 185 Berry Street Suite 550"
+                />
+              </label>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>City</span>
+                  <input
+                    name="contact_city"
+                    type="text"
+                    class="field"
+                    placeholder="City"
+                  />
+                </label>
+                <label>
+                  <span>District</span>
+
+                  <input
+                    name="contact_district"
+                    type="text"
+                    class="field"
+                    placeholder="District"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Full Name</span>
+                  <input
+                    name="contact_addr_full_name"
+                    type="text"
+                    class="field"
+                    placeholder="Full Name"
+                  />
+                </label>
+                <label>
+                  <span>Use</span>
+
+                  <input
+                    name="contact_addr_use"
+                    type="text"
+                    class="field"
+                    placeholder="Use"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Country</span>
+                  <input
+                    name="contact_country"
+                    type="text"
+                    class="field"
+                    placeholder="Country"
+                  />
+                </label>
+                <label>
+                  <span>Zipcode</span>
+
+                  <input
+                    name="contact_zipcode"
+                    type="text"
+                    class="field"
+                    placeholder="Zipcode"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Email Value</span>
+                  <input
+                    name="contact_email_value"
+                    type="email"
+                    class="field"
+                    placeholder="Email"
+                  />
+                </label>
+                <label>
+                  <span>Email type</span>
+
+                  <input
+                    name="contact_email_type"
+                    type="text"
+                    class="field"
+                    placeholder="Email Type"
+                  />
+                </label>
+              </div>
+              <label>
+                <span>Address Type</span>
+                <input
+                  name="contact_addr_type"
+                  type="text"
+                  class="field"
+                  placeholder="Address Type"
+                />
+              </label>
+            </fieldset>
+          </section>
+          <section>
+            <h2>IDENTIFIER INFORMATION</h2>
+            <fieldset>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>SSN</span>
+                  <input
+                    name="ssn"
+                    type="text"
+                    class="field"
+                    placeholder="Enter your SSN"
+                  />
+                </label>
+                <label>
+                  <span>Driver License</span>
+                  <input
+                    name="license"
+                    type="text"
+                    class="field"
+                    placeholder="License Number"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>ITIN</span>
+                  <input
+                    name="itin"
+                    type="text"
+                    class="field"
+                    placeholder="Enter your ITIN"
+                  />
+                </label>
+                <label>
+                  <span>Passport Number</span>
+                  <input
+                    name="passport"
+                    type="text"
+                    class="field"
+                    placeholder="Passport Number"
+                  />
+                </label>
+              </div>
+            </fieldset>
+          </section>
+          <section>
+            <h2>ORGANIZATION INFORMATION</h2>
+            <fieldset>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Organization Name</span>
+                  <input
+                    name="orgName"
+                    type="text"
+                    class="field"
+                    placeholder="Organization Name"
+                  />
+                </label>
+                <label>
+                  <span>Organization Type</span>
+                  <input
+                    name="orgType"
+                    type="text"
+                    class="field"
+                    placeholder="Organization Type"
+                  />
+                </label>
+              </div>
+              <label>
+                <span>Is Active?</span>
+                <input
+                  name="active"
+                  type="text"
+                  class="field"
+                  placeholder="Is Active?"
+                />
+              </label>
+              <div style="display: flex; justify-content: space-between">
+                <label class="mobile">
+                  <span>Mobile Number</span>
+                  <input
+                    type="text"
+                    name="org_mobile_value"
+                    class="field"
+                    placeholder="Mobile number"
+                  />
+                </label>
+                <label class="home">
+                  <span>Mobile Number Type</span>
+                  <input
+                    type="text"
+                    name="org_mobile_type"
+                    class="field"
+                    placeholder="Mobile Number Type"
+                  />
+                </label>
+              </div>
+              <label>
+                <span>Address Line1</span>
+                <input
+                  type="text"
+                  name="org_address_line1"
+                  class="field"
+                  placeholder="Eg: 185 Berry Street Suite 550"
+                />
+              </label>
+              <label>
+                <span>Address Line2</span>
+                <input
+                  type="text"
+                  name="org_address_line2"
+                  class="field"
+                  placeholder="Eg: 185 Berry Street Suite 550"
+                />
+              </label>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>City</span>
+                  <input
+                    name="org_city"
+                    type="text"
+                    class="field"
+                    placeholder="City"
+                  />
+                </label>
+                <label>
+                  <span>District</span>
+
+                  <input
+                    name="org_district"
+                    type="text"
+                    class="field"
+                    placeholder="District"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Full Name</span>
+                  <input
+                    name="org_addr_full_name"
+                    type="text"
+                    class="field"
+                    placeholder="Full Name"
+                  />
+                </label>
+                <label>
+                  <span>Use</span>
+
+                  <input
+                    name="org_addr_use"
+                    type="text"
+                    class="field"
+                    placeholder="Use"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Country</span>
+                  <input
+                    name="org_country"
+                    type="text"
+                    class="field"
+                    placeholder="Country"
+                  />
+                </label>
+                <label>
+                  <span>Zipcode</span>
+
+                  <input
+                    name="org_zipcode"
+                    type="text"
+                    class="field"
+                    placeholder="Zipcode"
+                  />
+                </label>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Email Value</span>
+                  <input
+                    name="org_email_value"
+                    type="email"
+                    class="field"
+                    placeholder="Email"
+                  />
+                </label>
+                <label>
+                  <span>Email type</span>
+
+                  <input
+                    name="org_email_type"
+                    type="text"
+                    class="field"
+                    placeholder="Email Type"
+                  />
+                </label>
+              </div>
+              <label>
+                <span>Address Type</span>
+                <input
+                  name="org_addr_type"
+                  type="text"
+                  class="field"
+                  placeholder="Address Type"
                 />
               </label>
             </fieldset>
@@ -187,22 +784,20 @@
           <div id="myModal" class="modal">
             <div class="modal-content">
               <div id="loader">
-                <div style="display: flex; justify-content: center;">
+                <div style="display: flex; justify-content: center">
                   <div class="loader"></div>
                 </div>
-                <div style="text-align: center;">Submitting your data..</div>
+                <div style="text-align: center">Submitting your data..</div>
               </div>
               <div id="content">
-                <div style="padding: 5px;">
+                <div style="padding: 5px">
                   Your data has been submitted successfully!!
                 </div>
-                <div style="padding: 10px;">
+                <div style="padding: 10px">
                   <div>Your Identity token is : <span id="ref_id"></span></div>
                 </div>
 
-                <button class="button" onclick="close(event)">
-                  Okay
-                </button>
+                <button class="button" onclick="close(event)">Okay</button>
               </div>
             </div>
           </div>

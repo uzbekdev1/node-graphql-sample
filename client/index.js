@@ -4,59 +4,115 @@
  */
 
 /**
- *
- * @param {*} id
- * @param {*} fname
- * @param {*} lname
- * @param {*} mname
- * @param {*} gender
- * @param {*} dob
- * @param {*} ssn
- * @param {*} mobile
- * @param {*} phone
- * @param {*} eth
- * @param {*} adr1
- * @param {*} adr2
- * @param {*} city
- * @param {*} state
- * @param {*} zipcode
- * @param {*} notes
- *
- *
  * graphql mutation to insert data
  */
 
 const insertRowMutation = (
-  id,
-  fname,
-  lname,
-  mname,
-  gender,
   dob,
-  ssn,
-  mobile,
-  phone,
-  eth,
-  adr1,
-  adr2,
+  gender,
+  race,
+  ethnicity,
+  religion,
+  preferred_language,
+  nationality,
+  marital_status,
+  prefix,
+  first_name,
+  mname,
+  lname,
+  name_use,
+  suffix,
+  person_mobile_type,
+  person_mobile_value,
+  full_name,
+  addr_use,
+  line1,
+  line2,
   city,
-  state,
-  zipcode,
-  notes
-) => `mutation{
-    insertRow(request:{identity_id:"${id}",first_name:"${fname}",last_name:"${lname}",middle_name:"${mname}",
-    gender:"${gender}",
-    birth_date:"${dob}",
-    ssn:"${ssn}",
-    mobile_phone_number:"${mobile}",
-    home_phone_number:"${phone}",
-    ethnicity:"${eth}",
-    primary_address_line1:"${adr1}",
-    primary_address_line2:"${adr2}",
-    primary_address_city:"${city}",
-    primary_address_state:"${state}",
-    primary_address_zipcode:"${zipcode}",
-    notes:"${notes}"})
+  district,
+  country,zipcode,atype,evalue,etype,
+
+  website,
+  contact_gender,
+  relationship,
+  isEmergency,
+  contact_email,
+  contact_type,
+  mobile_value,
+  mobile_type,
+  social_handle,
+  social_type,
+  contact_prefix,
+  contact_fname,
+  contact_mname,
+  contact_lname,
+  contact_use,
+  contact_suffix,
+  contact_full_name,
+  contact_addr_use,
+  contact_line1,
+  contact_line2,
+  contact_city,
+  contact_district,
+  contact_country,
+  contact_zipcode,
+  contact_addr_type,
+  start_date,
+  end_date,
+
+  ssn,
+  license,
+  itin,
+  passport,
+
+  active,
+  orgType,
+  orgName,
+  org_mobile_value,
+  org_mobile_type,
+  org_full_name,
+  org_addr_use,
+  org_address_line1,
+  org_address_line2,
+  org_city,
+  org_district,
+  org_country,
+  org_zipcode,
+  org_addr_type,
+  org_email_value,
+  org_email_type
+) =>
+  `mutation{
+    insertRow(request:{persons:{skyflow_id:"",date_of_birth:"${dob}",gender:"${gender}",race:"${race}",
+    ethnicity:"${ethnicity}",religion:"${religion}",preferred_language:"${preferred_language}",
+    nationality:"${nationality}",
+    marital_status:"${marital_status}",name:{prefix:"${prefix}",first_name:"${first_name}",
+    middle_name:"${mname}",last_name:"${lname}",use:"${name_use}",suffix:"${suffix}"},
+    phone_numbers:[{value:"${person_mobile_value}",type:"${person_mobile_type}"}],
+    addresses:[{full_name:"${full_name}",
+    use:"${addr_use}",line_1:"${line1}",
+    line_2:"${line2}",city:"${city}",district:"${district}",country:"${country}",
+    zip_code:"${zipcode}",address_type:"${atype}"}],emails:[{value:"${evalue}",type:"${etype}"}]},
+    
+    contacts:{skyflow_id:"",website:"${website}",
+    gender:"${contact_gender}",relationship:"${relationship}",is_emergency_contact:"${isEmergency}",emails:[{value:"${contact_email}",type:"${contact_type}"}],
+    phone_numbers:[{value:"${mobile_value}",type:"${mobile_type}"}],social_media_handles:[{value:"${social_handle}",type:"${social_type}"}],
+    name:{prefix:"${contact_prefix}",first_name:"${contact_fname}",middle_name:"${contact_mname}",last_name:"${contact_lname}",
+    use:"${contact_use}",suffix:"${contact_suffix}"},
+    addresses:[{full_name:"${contact_full_name}",use:"${contact_addr_use}",line_1:"${contact_line1}",
+    line_2:"${contact_line2}",city:"${contact_city}",district:"${contact_district}",country:"${contact_country}",
+    zip_code:"${contact_zipcode}",address_type:"${contact_addr_type}"}],
+    period:{start_date:"${start_date}",end_date:"${end_date}"}},
+    
+    identifiers:{skyflow_id:"",ssn:"${ssn}",drivers_license:["${license}"],itin:"${itin}",passport_number:"${passport}"},
+    
+    organizations:{skyflow_id:"",is_active:"${active}",type:"${orgType}",name:"${orgName}",
+    phone_numbers:[{value:"${org_mobile_value}",type:"${org_mobile_type}"}],
+    addresses:[{full_name:"${org_full_name}",use:"${org_addr_use}",line_1:"${org_address_line1}",
+    line_2:"${org_address_line2}",city:"${org_city}",district:"${org_district}",country:"${org_country}",
+    zip_code:"${org_zipcode}",address_type:"${org_addr_type}"}],
+    emails:[{value:"${org_email_value}",type:"${org_email_type}"}]}
+})
    {
     message 
    }
@@ -72,6 +128,9 @@ async function insertRow(e) {
 
   modal.style.display = "block";
   document.getElementById("loader").style.display = "block";
+  const form = document.querySelector("form");
+  const formData = new FormData(form);
+  
   const options = {
     method: "post",
     headers: {
@@ -80,22 +139,66 @@ async function insertRow(e) {
     },
     body: JSON.stringify({
       query: insertRowMutation(
-        document.getElementById("identity_id").value,
-        document.getElementById("first_name").value,
-        document.getElementById("last_name").value,
-        document.getElementById("middle_name").value,
-        document.getElementById("gender").value,
-        document.getElementById("birth_date").value,
-        document.getElementById("ssn").value,
-        document.getElementById("mobile_phone_number").value,
-        document.getElementById("home_phone_number").value,
-        document.getElementById("ethnicity").value,
-        document.getElementById("primary_address_line1").value,
-        document.getElementById("primary_address_line2").value,
-        document.getElementById("primary_address_city").value,
-        document.getElementById("primary_address_state").value,
-        document.getElementById("primary_address_zipcode").value,
-        document.getElementById("notes").value
+        formData.get("birth_date"),
+        formData.get("gender"),
+        formData.get("race"),
+        formData.get("ethnicity"),
+        formData.get("religion"),
+        formData.get("preferred_language"),
+        formData.get("nationality"),
+        formData.get("marital_status"),
+        formData.get("prefix"),
+        formData.get("first_name"),
+        formData.get("last_name"),
+        formData.get("middle_name"),
+        formData.get("name_use"),
+        formData.get("suffix"),
+        formData.get("person_mobile_type"),
+        formData.get("person_mobile_value"),
+        formData.get("addr_full_name"),
+        formData.get("addr_use"),
+        formData.get("persons_address_line1"),
+        formData.get("persons_address_line2"),
+        formData.get("city"),
+        formData.get("district"),
+        formData.get("country"),
+        formData.get("zipcode"),
+        formData.get("addr_type"),
+        formData.get("email_value"),
+        formData.get("email_type"),
+
+        formData.get('website'),formData.get('contact_gender'),
+        formData.get('relationship'),formData.get('isEmergency'),formData.get('contact_email_value'),
+        formData.get('contact_email_type'),formData.get('mobile_value'),formData.get('mobile_type'),
+        formData.get('social_handle'),formData.get('social_type'),
+        formData.get('contact_prefix'),formData.get('contact_first_name'),formData.get('contact_middle_name'),formData.get('contact_last_name'),
+        formData.get('contact_name_use'),formData.get('contact_suffix'),formData.get('contact_full_name'),
+        formData.get('contact_addr_use'),formData.get('contact_address_line1'),formData.get('contact_address_line2'),
+        formData.get('contact_city'),formData.get('contact_district'),formData.get('contact_country'),formData.get('contact_zipcode'),
+        formData.get('contact_addr_type'),
+        formData.get('start_date'),formData.get('end_date'),
+
+        formData.get('ssn'),
+        formData.get('license'),
+        formData.get('itin'),
+        formData.get('passport'),
+
+        formData.get("active"),
+        formData.get("orgType"),
+        formData.get("orgName"),
+        formData.get("org_mobile_value"),
+        formData.get("org_mobile_type"),
+        formData.get("org_full_name"),
+        formData.get("org_addr_use"),
+        formData.get("org_address_line1"),
+        formData.get("org_address_line2"),
+        formData.get("org_city"),
+        formData.get("org_district"),
+        formData.get("org_country"),
+        formData.get("org_zipcode"),
+        formData.get("org_addr_type"),
+        formData.get("org_email_value"),
+        formData.get("org_email_type")
       ),
     }),
   };
