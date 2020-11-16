@@ -134,10 +134,24 @@ button:active {
   background: #43458b;
 }
 
+.get{
+  width:300px;
+  text-align: center;
+}
+
+
 #ref_id {
   font-weight: bold;
 }
 
+
+#heading {
+  font-weight: bold;
+}
+
+#data{
+  overflow: scroll;
+}
 .modal {
   display: none;
   position: fixed;

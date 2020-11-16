@@ -25,6 +25,80 @@ async function insertRecords(recordData) {
   return token;
 }
 
+async function getRecordFromPersons({ request }) {
+  let response = "";
+  const req =
+    request.type == "REDACTED"
+      ? request.id
+      : request.type == "TOKEN"
+      ? `${request.id}?dlp=TOKEN`
+      : `${request.id}?dlp=PLAIN_TEXT`;
+  await client
+    .getRecord("persons", req)
+    .then((res) => {
+      response = res.fields;
+    })
+    .catch((err) => (response = error));
+
+  return response;
+}
+
+async function getRecordFromContacts({ request }) {
+  let response = "";
+  const req =
+    request.type == "REDACTED"
+      ? request.id
+      : request.type == "TOKEN"
+      ? `${request.id}?dlp=TOKEN`
+      : `${request.id}?dlp=PLAIN_TEXT`;
+
+  await client
+    .getRecord("contacts", req)
+    .then((res) => {
+      response = res.fields;
+    })
+    .catch((err) => (response = error));
+
+  return response;
+}
+
+async function getRecordFromIdentifiers({ request }) {
+  let response = "";
+  const req =
+    request.type == "REDACTED"
+      ? request.id
+      : request.type == "TOKEN"
+      ? `${request.id}?dlp=TOKEN`
+      : `${request.id}?dlp=PLAIN_TEXT`;
+
+  await client
+    .getRecord("identifiers", req)
+    .then((res) => {
+      response = res.fields;
+    })
+    .catch((err) => (response = error));
+
+  return response;
+}
+
+async function getRecordFromOrganizations({ request }) {
+  let response = "";
+  const req =
+    request.type == "REDACTED"
+      ? request.id
+      : request.type == "TOKEN"
+      ? `${request.id}?dlp=TOKEN`
+      : `${request.id}?dlp=PLAIN_TEXT`;
+
+  await client
+    .getRecord("organizations", req)
+    .then((res) => {
+      response = res.fields;
+    })
+    .catch((err) => (response = error));
+
+  return response;
+}
 async function insertRowInVault({ request }) {
   recordData = [];
   for (let key in request) {
@@ -36,6 +110,10 @@ async function insertRowInVault({ request }) {
 
 var root = {
   insertRow: insertRowInVault,
+  getRecordFromPersons: getRecordFromPersons,
+  getRecordFromContacts: getRecordFromContacts,
+  getRecordFromIdentifiers: getRecordFromIdentifiers,
+  getRecordFromOrganizations: getRecordFromOrganizations,
 };
 
 module.exports = { root };

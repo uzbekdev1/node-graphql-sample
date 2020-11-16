@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Skyflow Demo</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <script src="index.js"></script>
+  </head>
+
+  <body>
+    <div class="main">
+      <div>
+        <div class="title">GET TABLE DETAILS</div>
+        <form id="details">
+          <section>
+            <h2>OBJECT INFORMATION</h2>
+            <fieldset>
+                <label>
+                    <span>Skyflow Id</span>
+                    <input
+                      id="tableId"
+                      type="text"
+                      class="field"
+                      placeholder="Skyflow Id"
+                    />
+                  </label>
+              <div style="display: flex; justify-content: space-between">
+                <label>
+                  <span>Table Name</span>
+                  <select id="table">
+                    <option value="">--Select--</option>
+                    <option value="Persons">PERSONS</option>
+                    <option value="Identifiers">IDENTIFIERS</option>
+                    <option value="Contacts">CONTACTS</option>
+                    <option value="Organizations">ORGANIZATIONS</option>
+                  </select>
+                </label>
+
+                <label>
+                  <span>Type</span>
+
+                  <select id="type">
+                    <option value="">--Select--</option>
+                    <option value="REDACTED">REDACTED</option>
+                    <option value="TOKEN">TOKEN</option>
+                    <option value="PLAIN_TEXT">PLAIN TEXT</option>
+                  </select>
+                </label>
+              </div>
+            </fieldset>
+          </section>
+          <div style="display: flex; justify-content: center">
+            <button type="submit" class="get" onclick="getDetails(event)">
+              Submit
+            </button>
+          </div>
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <div id="loader">
+                <div style="display: flex; justify-content: center">
+                  <div class="loader"></div>
+                </div>
+                <div style="text-align: center">Fetching data..</div>
+              </div>
+              <div id="content">
+                <div id="heading" style="padding: 5px">JSON Data</div>
+                <div id="data" style="padding: 10px"></div>
+
+                <button class="button" onclick="close(event)">Okay</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -130,7 +130,6 @@ async function insertRow(e) {
   document.getElementById("loader").style.display = "block";
   const form = document.querySelector("form");
   const formData = new FormData(form);
-  
   const options = {
     method: "post",
     headers: {
@@ -167,21 +166,38 @@ async function insertRow(e) {
         formData.get("email_value"),
         formData.get("email_type"),
 
-        formData.get('website'),formData.get('contact_gender'),
-        formData.get('relationship'),formData.get('isEmergency'),formData.get('contact_email_value'),
-        formData.get('contact_email_type'),formData.get('mobile_value'),formData.get('mobile_type'),
-        formData.get('social_handle'),formData.get('social_type'),
-        formData.get('contact_prefix'),formData.get('contact_first_name'),formData.get('contact_middle_name'),formData.get('contact_last_name'),
-        formData.get('contact_name_use'),formData.get('contact_suffix'),formData.get('contact_full_name'),
-        formData.get('contact_addr_use'),formData.get('contact_address_line1'),formData.get('contact_address_line2'),
-        formData.get('contact_city'),formData.get('contact_district'),formData.get('contact_country'),formData.get('contact_zipcode'),
-        formData.get('contact_addr_type'),
-        formData.get('start_date'),formData.get('end_date'),
+        formData.get("website"),
+        formData.get("contact_gender"),
+        formData.get("relationship"),
+        formData.get("isEmergency"),
+        formData.get("contact_email_value"),
+        formData.get("contact_email_type"),
+        formData.get("mobile_value"),
+        formData.get("mobile_type"),
+        formData.get("social_handle"),
+        formData.get("social_type"),
+        formData.get("contact_prefix"),
+        formData.get("contact_first_name"),
+        formData.get("contact_middle_name"),
+        formData.get("contact_last_name"),
+        formData.get("contact_name_use"),
+        formData.get("contact_suffix"),
+        formData.get("contact_full_name"),
+        formData.get("contact_addr_use"),
+        formData.get("contact_address_line1"),
+        formData.get("contact_address_line2"),
+        formData.get("contact_city"),
+        formData.get("contact_district"),
+        formData.get("contact_country"),
+        formData.get("contact_zipcode"),
+        formData.get("contact_addr_type"),
+        formData.get("start_date"),
+        formData.get("end_date"),
 
-        formData.get('ssn'),
-        formData.get('license'),
-        formData.get('itin'),
-        formData.get('passport'),
+        formData.get("ssn"),
+        formData.get("license"),
+        formData.get("itin"),
+        formData.get("passport"),
 
         formData.get("active"),
         formData.get("orgType"),
@@ -212,6 +228,161 @@ async function insertRow(e) {
     });
 }
 
+const getDetailsQuery=(table,tableId,type)=>{
+if(table==='Persons')
+return `query{
+  getRecordFrom${table}(request:{id:"${tableId}",type:${type}}){
+    name{
+      first_name
+      last_name
+      prefix
+      middle_name
+      use
+      suffix
+    }
+    date_of_birth
+    gender
+    ethnicity
+    religion
+    preferred_language
+    nationality
+    marital_status
+    phone_numbers{
+      value
+      type
+    }
+    emails{
+      value
+      type
+    }
+    race
+    addresses{
+      line_1
+      line_2
+      city
+      district
+      country
+      zip_code
+      use
+      address_type
+    }
+  }
+}`;
+else if(table==='Contacts')
+return `query{
+  getRecordFrom${table}(request:{id:"${tableId}",type:${type}}){
+    website
+    gender
+    relationship
+		is_emergency_contact
+    emails{
+      value
+      type
+    }
+    phone_numbers{
+      value
+      type
+    }
+    social_media_handles{
+      value
+      type
+    }
+    name{
+      first_name
+      last_name
+      prefix
+      middle_name
+      use
+      suffix
+    }
+    period{
+      start_date
+      end_date
+    }
+    addresses{
+      line_1
+      line_2
+      city
+      district
+      country
+      zip_code
+      use
+      address_type
+    }
+  }
+}`;
+else if(table==="Identifiers")
+return `query{
+  getRecordFrom${table}(request:{id:"${tableId}",type:${type}}){
+    ssn
+    drivers_license
+    itin
+    passport_number
+  }
+}`;
+else if(table==="Organizations")
+return `query{
+  getRecordFrom${table}(request:{id:"${tableId}",type:${type}}){
+    is_active
+    type
+    name
+    emails{
+      value
+      type
+    }
+    phone_numbers{
+      value
+      type
+    }
+    addresses{
+      line_1
+      line_2
+      city
+      district
+      country
+      zip_code
+      use
+      address_type
+    }
+  }
+}`; }
+
+async function getDetails(e) {
+  e.preventDefault();
+  var modal = document.getElementById("myModal");
+
+  modal.style.display = "block";
+  document.getElementById("loader").style.display = "block";
+  const options = {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: getDetailsQuery(
+        document.getElementById("table").value,
+        document.getElementById("tableId").value,
+        document.getElementById("type").value
+      ),
+    }),
+  };
+  await fetch(`http://localhost:4242`, options)
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      showData(res);
+    });
+}
+
+const showData=({data})=>{
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("content").style.display = "block";
+  document.getElementById("data").innerHTML = JSON.stringify(
+    data
+  );
+}
 const showResponse = ({ data }) => {
   document.getElementById("loader").style.display = "none";
   document.getElementById("content").style.display = "block";
